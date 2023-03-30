@@ -38,13 +38,17 @@ export function extractAccessTokenFromAuthHeader(
    const authHeader = requestHeaders.get('Authorization')
    if (authHeader === null) {
       return { error: 'No Authorization header' }
-   } else if (!authHeader.includes('Bearer')) {
-      return { error: `Invalid Authorization header: ${authHeader}` }
    } else {
-      return {
-         accessToken: authHeader.substring(
-            authHeader.lastIndexOf('Bearer ') + 7,
-         ),
+      const lowerCaseAuthHeader = authHeader.toLocaleLowerCase()
+
+      if (!lowerCaseAuthHeader.includes('bearer')) {
+         return { error: `Invalid Authorization header: ${authHeader}` }
+      } else {
+         return {
+            accessToken: lowerCaseAuthHeader.substring(
+               lowerCaseAuthHeader.lastIndexOf('bearer ') + 7,
+            ),
+         }
       }
    }
 }
