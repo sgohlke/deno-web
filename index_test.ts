@@ -35,13 +35,13 @@ Deno.test('Calling returnDataResponse should return expected result', async () =
 
 Deno.test('Calling logAndReturnErrorResponse should return expected result', async () => {
    // Test default status code, should be 400
-   let response = logAndReturnErrorResponse(defaultResponseHeaders, 'error')
+   let response = logAndReturnErrorResponse('error', defaultResponseHeaders)
    assertEquals(response.status, 400)
    let responseJson = await response.json()
    assertEquals(responseJson.error, 'error')
 
    // Test set status code, should be 418
-   response = logAndReturnErrorResponse(defaultResponseHeaders, 'error', 418)
+   response = logAndReturnErrorResponse('error', defaultResponseHeaders, 418)
    assertEquals(response.status, 418)
    responseJson = await response.json()
    assertEquals(responseJson.error, 'error')
