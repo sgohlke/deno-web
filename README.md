@@ -13,6 +13,7 @@ Example:
 import {
    extractAccessTokenFromAuthHeader,
    JSON_CONTENT_TYPE_HEADER,
+   logAndReturnErrorResponse,
    returnDataResponse,
    startServer,
 } from 'https://raw.githubusercontent.com/sgohlke/deno-web/2.0.0/index.ts'
@@ -26,6 +27,7 @@ The following code example shows how this module can be used.
 import {
    extractAccessTokenFromAuthHeader,
    JSON_CONTENT_TYPE_HEADER,
+   logAndReturnErrorResponse,
    returnDataResponse,
    startServer,
 } from 'https://raw.githubusercontent.com/sgohlke/deno-web/2.0.0/index.ts'
