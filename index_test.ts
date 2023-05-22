@@ -1,11 +1,11 @@
-import { assertEquals } from './deps.ts'
 import {
+   assertEquals,
    extractAccessTokenFromAuthHeader,
    JSON_CONTENT_TYPE_HEADER,
    logAndReturnErrorResponse,
    returnDataResponse,
    startServer,
-} from './index.ts'
+} from './mod.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 

@@ -1,5 +1,4 @@
-import { assertEquals } from './deps.ts'
-import { Webserver } from './webserver.ts'
+import { assertEquals, Webserver } from './mod.ts'
 
 Deno.test('Calling startServer from Webserver with CORS enabled should return expected result', async () => {
    const webserver = new Webserver({

@@ -1,9 +1,9 @@
-import { ServeInit } from './deps.ts'
 import {
    JSON_CONTENT_TYPE_HEADER,
    returnDataResponse,
+   ServeInit,
    startServer,
-} from './index.ts'
+} from './mod.ts'
 
 export interface ServerOptions {
    serveInit?: ServeInit
