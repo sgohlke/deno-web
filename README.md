@@ -1,6 +1,6 @@
 # deno-web
 
-Webserver and related helper functions in Deno
+Webserver and related helper functions in Deno.
 
 ## Usage and Versioning
 
@@ -69,7 +69,11 @@ startServer((request) => {
 
 ## Stopping the webserver
 
-If you run your application on **Deno Deploy** it is not necessary to provide a way to stop the webserver. If you need this functionality (e.g. when running your app elsewhere or for tests to shut down properly) you can provide an **AbortController** and **AbortSignal** to stop/close the server. See the following example.
+If you run your application on **Deno Deploy** it is not necessary to provide a
+way to stop the webserver. If you need this functionality (e.g. when running
+your app elsewhere or for tests to shut down properly) you can provide an
+**AbortController** and **AbortSignal** to stop/close the server. See the
+following example.
 
 ```typescript
 import {
@@ -92,12 +96,14 @@ Deno.test('Calling startServer should return expected result', async () => {
    assertEquals(responseJson.message, 'test')
    abortController.abort()
 })
-
 ```
 
+## Version 5 changes
 
-## Version 4 changes
+Version 5 of deno-web tries to use the builtin [Deno.serve][1] function if
+available. If not, [http/server std lib][2] is used. The [WebServeHandler][3]
+type is used to provide a **WebServe** handler that matches both approaches.
 
-Version 4 of deno-web uses the builtin **Deno.serve** function in favour of the **serve** function from Deno std http module. It uses the matching handler and options provided in the global *Deno* object. The types/interfaces are similar, you might have to make small adjustments if necessary. The exports of http module related types and functions have been removed.
-
-As **Deno.serve** function returns a **Deno.Server** object a new function **createAndStartServer** that returns the server object has been added in case you want to work with it.
+[1]: https://deno.land/api?s=Deno.serve
+[2]: https://deno.land/std/http/server.ts?s=serve
+[3]: https://github.com/sgohlke/deno-web/blob/main/src/WebServeHandler.ts

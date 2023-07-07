@@ -5,7 +5,7 @@ import {
    logAndReturnErrorResponse,
    returnDataResponse,
    startServer,
-} from './mod.ts'
+} from '../mod.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
@@ -69,4 +69,23 @@ Deno.test('Calling extractAccessTokenFromAuthHeader should return expected resul
       new Headers({ authorization: 'Bearer valid' }),
    )
    assertEquals(tokenOrError.accessToken, 'valid')
+})
+
+Deno.test('Calling startServer when Deno.serve is unavailable should return expected result', async () => {
+   const originalDenoServe = Deno.serve
+   // deno-lint-ignore no-explicit-any
+   Deno.serve = undefined as any
+
+   const abortController = new AbortController()
+   startServer(() =>
+      new Response(JSON.stringify({ message: 'test' }), {
+         headers: JSON_CONTENT_TYPE_HEADER,
+      }), { port: 7035, signal: abortController.signal })
+
+   const response = await fetch('http://localhost:7035/')
+   assertEquals(response.status, 200)
+   const responseJson = await response.json()
+   assertEquals(responseJson.message, 'test')
+   Deno.serve = originalDenoServe
+   abortController.abort()
 })

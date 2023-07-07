@@ -1,13 +1,9 @@
 import {
    JSON_CONTENT_TYPE_HEADER,
    returnDataResponse,
+   ServerOptions,
    startServer,
-} from './mod.ts'
-
-export interface ServerOptions {
-   denoServeOptions: Deno.ServeOptions | Deno.ServeTlsOptions
-   enableCORS?: boolean
-}
+} from '../mod.ts'
 
 export class Webserver {
    serverOptions: ServerOptions
@@ -21,11 +17,7 @@ export class Webserver {
             },
          }
 
-      if (!this.serverOptions.denoServeOptions) {
-         this.serverOptions.denoServeOptions = {
-            signal: (this.abortController = new AbortController()).signal,
-         }
-      } else if (!this.serverOptions.denoServeOptions.signal) {
+      if (!this.serverOptions.denoServeOptions.signal) {
          this.serverOptions.denoServeOptions.signal =
             (this.abortController = new AbortController()).signal
       }
