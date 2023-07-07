@@ -16,7 +16,7 @@ import {
    logAndReturnErrorResponse,
    returnDataResponse,
    startServer,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/4.0.0/mod.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/5.0.0/mod.ts'
 ```
 
 ## Code example
@@ -30,7 +30,7 @@ import {
    logAndReturnErrorResponse,
    returnDataResponse,
    startServer,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/4.0.0/mod.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/5.0.0/mod.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
@@ -79,7 +79,7 @@ following example.
 import {
    JSON_CONTENT_TYPE_HEADER,
    startServer,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/4.0.0/mod.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/5.0.0/mod.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
