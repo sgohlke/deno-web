@@ -10,4 +10,4 @@ export {
 } from './src/index.ts'
 export type { ServerOptions } from './src/ServerOptions.ts'
 export type { WebServeHandler } from './src/WebServeHandler.ts'
-export { Webserver } from './src/webserver.ts'
+export { Webserver } from './src/Webserver.ts'
