@@ -10,8 +10,8 @@ export interface AccessTokenOrError {
 /**
  * Creates and starts a webserver, but does not return the created Server object.
  * If you want to work with the created server, use {@link createAndStartServer} instead.
- * @param {Handler} handler - The handler for HTTP requests
- * @param {ServeInit} options - Optional, additional server options
+ * @param {Deno.ServeHandler} handler - The handler for HTTP requests
+ * @param {Deno.ServeOptions | Deno.ServeTlsOptions} options - Additional server options
  */
 export function startServer(handler: Deno.ServeHandler, options: Deno.ServeOptions | Deno.ServeTlsOptions): void {
    createAndStartServer(handler, options)
@@ -20,8 +20,8 @@ export function startServer(handler: Deno.ServeHandler, options: Deno.ServeOptio
 /**
  * Creates and starts a webserver, and returns the created Server object.
  * If you do not want to work with the returned server, consider calling {@link startServer} instead.
- * @param {Handler} handler - The handler for HTTP requests
- * @param {ServeInit} options - Optional, additional server options
+ * @param {Deno.ServeHandler} handler - The handler for HTTP requests
+ * @param {Deno.ServeOptions | Deno.ServeTlsOptions} options - Additional server options
  * @returns {Deno.Server} The created Deno.Server object
  */
 export function createAndStartServer(handler: Deno.ServeHandler, options: Deno.ServeOptions | Deno.ServeTlsOptions,
