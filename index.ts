@@ -1,5 +1,3 @@
-import { Handler, serve, ServeInit } from './mod.ts'
-
 export const JSON_CONTENT_TYPE_HEADER = {
    'content-type': 'application/json; charset=UTF-8',
 }
@@ -10,12 +8,25 @@ export interface AccessTokenOrError {
 }
 
 /**
- * Starts a webserver.
+ * Creates and starts a webserver, but does not return the created Server object.
+ * If you want to work with the created server, use {@link createAndStartServer} instead.
  * @param {Handler} handler - The handler for HTTP requests
  * @param {ServeInit} options - Optional, additional server options
  */
-export function startServer(handler: Handler, options?: ServeInit): void {
-   serve(handler, options)
+export function startServer(handler: Deno.ServeHandler, options: Deno.ServeOptions | Deno.ServeTlsOptions): void {
+   createAndStartServer(handler, options)
+}
+
+/**
+ * Creates and starts a webserver, and returns the created Server object.
+ * If you do not want to work with the returned server, consider calling {@link startServer} instead.
+ * @param {Handler} handler - The handler for HTTP requests
+ * @param {ServeInit} options - Optional, additional server options
+ * @returns {Deno.Server} The created Deno.Server object
+ */
+export function createAndStartServer(handler: Deno.ServeHandler, options: Deno.ServeOptions | Deno.ServeTlsOptions,
+   ): Deno.Server {
+   return Deno.serve(options, handler)
 }
 
 /**

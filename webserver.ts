@@ -1,12 +1,11 @@
 import {
    JSON_CONTENT_TYPE_HEADER,
    returnDataResponse,
-   ServeInit,
    startServer,
 } from './mod.ts'
 
 export interface ServerOptions {
-   serveInit?: ServeInit
+   denoServeOptions: Deno.ServeOptions | Deno.ServeTlsOptions
    enableCORS?: boolean
 }
 
@@ -17,23 +16,23 @@ export class Webserver {
    constructor(options?: ServerOptions) {
       this.serverOptions = options ??
          {
-            serveInit: {
+            denoServeOptions: {
                signal: (this.abortController = new AbortController()).signal,
             },
          }
 
-      if (!this.serverOptions.serveInit) {
-         this.serverOptions.serveInit = {
+      if (!this.serverOptions.denoServeOptions) {
+         this.serverOptions.denoServeOptions = {
             signal: (this.abortController = new AbortController()).signal,
          }
-      } else if (!this.serverOptions.serveInit.signal) {
-         this.serverOptions.serveInit.signal =
+      } else if (!this.serverOptions.denoServeOptions.signal) {
+         this.serverOptions.denoServeOptions.signal =
             (this.abortController = new AbortController()).signal
       }
    }
 
    startWebserver(): void {
-      startServer(this.handler, this.serverOptions?.serveInit)
+      startServer(this.handler, this.serverOptions.denoServeOptions)
    }
 
    closeWebserver(): void {
