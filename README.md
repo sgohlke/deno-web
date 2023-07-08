@@ -1,6 +1,31 @@
 # deno-web
 
-Webserver and related helper functions in Deno.
+Webserver and related helper functions in Deno. **startServer** tries to use the builtin [Deno.serve][1] function if
+available to start a new webserver. If not, [http/server std lib][2] is used as fallback. The [WebServeHandler][3]
+type is used to provide a **WebServe** handler that matches both approaches.
+
+## Structure
+
+Code is organized into small parts in subfolders.
+
+- **request/extractAccessTokenFromAuthHeader.ts**: Tries to extract a JWT access
+  token from the Authorization header.
+- **response**: Helper functions for creating responses.
+  - **responseFunctions.ts**
+    - **returnDataResponse**: Creates a data response and returns it.
+    - **logAndReturnErrorResponse**: Creates an error response, logs and and
+      returns it.
+  - **ResponseHeaders.ts**: Contains **JSON_CONTENT_TYPE_HEADER** as constant
+- **server/serverFunctions.ts**
+  - **startServer**: Creates and starts a webserver, but does not return the
+    created Server object.
+  - **createAndStartServer**: Creates and starts a webserver, and returns the
+    created Server object.
+- **webserver/Webserver.ts**: IN PROGRESS, provides Webserver class for starting
+  webserver and provides routing
+
+By importing only the wanted functions the code is kept at a small size and
+unnecessary imports are avoided if possible.
 
 ## Usage and Versioning
 
@@ -11,12 +36,8 @@ Example:
 
 ```typescript
 import {
-   extractAccessTokenFromAuthHeader,
-   JSON_CONTENT_TYPE_HEADER,
-   logAndReturnErrorResponse,
-   returnDataResponse,
    startServer,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/5.0.0/mod.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/server/serverFunctions.ts'
 ```
 
 ## Code example
@@ -24,13 +45,13 @@ import {
 The following code example shows how this module can be used.
 
 ```typescript
+import { extractAccessTokenFromAuthHeader } from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/request/extractAccessTokenFromAuthHeader.ts'
 import {
-   extractAccessTokenFromAuthHeader,
-   JSON_CONTENT_TYPE_HEADER,
    logAndReturnErrorResponse,
    returnDataResponse,
-   startServer,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/5.0.0/mod.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/response/responseFunctions.ts'
+import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/response/ResponseHeaders.ts'
+import { startServer } from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/server/serverFunctions.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
@@ -76,10 +97,9 @@ your app elsewhere or for tests to shut down properly) you can provide an
 following example.
 
 ```typescript
-import {
-   JSON_CONTENT_TYPE_HEADER,
-   startServer,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/5.0.0/mod.ts'
+import { assertEquals } from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/deps.ts'
+import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/response/ResponseHeaders.ts'
+import { startServer } from 'https://raw.githubusercontent.com/sgohlke/deno-web/6.0.0/server/serverFunctions.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
@@ -98,12 +118,10 @@ Deno.test('Calling startServer should return expected result', async () => {
 })
 ```
 
-## Version 5 changes
+## Version 6 changes
 
-Version 5 of deno-web tries to use the builtin [Deno.serve][1] function if
-available. If not, [http/server std lib][2] is used. The [WebServeHandler][3]
-type is used to provide a **WebServe** handler that matches both approaches.
+Code is rearranged into different folders and split into small parts. Mod.ts is removed and importing will be done directly to avoid importing the whole module is imported when only a few helper functions are used.
 
 [1]: https://deno.land/api?s=Deno.serve
 [2]: https://deno.land/std/http/server.ts?s=serve
-[3]: https://github.com/sgohlke/deno-web/blob/main/src/WebServeHandler.ts
+[3]: https://github.com/sgohlke/deno-web/blob/main/server/serverFunctions.ts

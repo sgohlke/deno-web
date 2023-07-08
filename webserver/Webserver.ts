@@ -1,9 +1,11 @@
-import {
-   JSON_CONTENT_TYPE_HEADER,
-   returnDataResponse,
-   ServerOptions,
-   startServer,
-} from '../mod.ts'
+import { JSON_CONTENT_TYPE_HEADER } from '../response/ResponseHeaders.ts'
+import { returnDataResponse } from '../response/responseFunctions.ts'
+import { startServer } from '../server/serverFunctions.ts'
+
+export interface ServerOptions {
+   denoServeOptions: Deno.ServeOptions | Deno.ServeTlsOptions
+   enableCORS?: boolean
+}
 
 export class Webserver {
    serverOptions: ServerOptions
