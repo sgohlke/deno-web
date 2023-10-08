@@ -21,8 +21,6 @@ Code is organized into small parts in subfolders.
     created Server object.
   - **createAndStartServer**: Creates and starts a webserver, and returns the
     created Server object.
-- **webserver/Webserver.ts**: IN PROGRESS, provides Webserver class for starting
-  webserver and provides routing
 
 By importing only the wanted functions the code is kept at a small size and
 unnecessary imports are avoided if possible.
@@ -118,9 +116,9 @@ Deno.test('Calling startServer should return expected result', async () => {
 })
 ```
 
-## Version 6 changes
+## Version 7 changes
 
-Code is rearranged into different folders and split into small parts. Mod.ts is removed and importing will be done directly to avoid importing the whole module is imported when only a few helper functions are used.
+Webserver has been removed, was not used.
 
 [1]: https://deno.land/api?s=Deno.serve
 [2]: https://deno.land/std/http/server.ts?s=serve
