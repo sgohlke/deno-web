@@ -33,7 +33,7 @@ Deno.test('Calling logAndReturnErrorResponse should return expected result', asy
 
 Deno.test('Calling startServer should return expected result', async () => {
    const abortController = new AbortController()
-   Deno.serve(
+   const server = Deno.serve(
       { port: 7035, signal: abortController.signal },
       () =>
          new Response(JSON.stringify({ message: 'test' }), {
@@ -46,4 +46,5 @@ Deno.test('Calling startServer should return expected result', async () => {
    const responseJson = await response.json()
    assertEquals(responseJson.message, 'test')
    abortController.abort()
+   await server.finished
 })
