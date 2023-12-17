@@ -11,6 +11,7 @@ Code is organized into small parts in subfolders.
 - **response**: Helper functions for creating responses.
   - **responseFunctions.ts**
     - **returnDataResponse**: Creates a data response and returns it.
+    - **returnDefaultFavicon**: Creates a response containing a default favicon and returns it.
     - **logAndReturnErrorResponse**: Creates an error response, logs and and
       returns it.
   - **ResponseHeaders.ts**: Contains **JSON_CONTENT_TYPE_HEADER** as constant

@@ -1,8 +1,10 @@
 import { assertEquals } from '../deps.ts'
 import { JSON_CONTENT_TYPE_HEADER } from './ResponseHeaders.ts'
 import {
+   FAVICON_SVG_STRING,
    logAndReturnErrorResponse,
    returnDataResponse,
+   returnDefaultFavicon,
 } from './responseFunctions.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
@@ -47,4 +49,12 @@ Deno.test('Calling startServer should return expected result', async () => {
    assertEquals(responseJson.message, 'test')
    abortController.abort()
    await server.finished
+})
+
+Deno.test('Calling returnDefaultFavicon should return expected result', async () => {
+   const response = returnDefaultFavicon()
+   assertEquals(response.status, 200)
+   assertEquals(response.headers.get('content-type'), 'image/svg+xml')
+   const responseJson = await response.text()
+   assertEquals(responseJson, FAVICON_SVG_STRING)
 })
