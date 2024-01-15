@@ -6,6 +6,12 @@ Webserver helper functions in Deno.
 
 Code is organized into small parts in subfolders.
 
+- **crypto**: Helper functions for crypto/password related tasks
+- **cryptoFunctions.ts**
+    - **arrayBufferToHexString**: Converts given ArrayBuffer to a HEX string.
+    - **async createPasswordHash**: Creates a SHA-256 hash for given password/string.
+    - **generateAccessTokenHash**: Creates an access token hash (hex string) from a Random 24 elements UInt8 Array.
+    - **async verifyPassword**: Verifies that a given cleartext password and a hashed password match. 
 - **request/extractAccessTokenFromAuthHeader.ts**: Tries to extract a JWT access
   token from the Authorization header.
 - **response**: Helper functions for creating responses.
@@ -29,7 +35,7 @@ Example:
 ```typescript
 import {
    returnDataResponse,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/server/responseFunctions.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.2.0/server/responseFunctions.ts'
 ```
 
 ## Code example
@@ -37,13 +43,13 @@ import {
 The following code example shows how this module can be used.
 
 ```typescript
-import { extractAccessTokenFromAuthHeader } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/request/extractAccessTokenFromAuthHeader.ts'
+import { extractAccessTokenFromAuthHeader } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.2.0/request/extractAccessTokenFromAuthHeader.ts'
 import {
    logAndReturnErrorResponse,
    returnDataResponse,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/response/responseFunctions.ts'
-import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/response/ResponseHeaders.ts'
-import { startServer } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/server/serverFunctions.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.2.0/response/responseFunctions.ts'
+import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.2.0/response/ResponseHeaders.ts'
+import { startServer } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.2.0/server/serverFunctions.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
