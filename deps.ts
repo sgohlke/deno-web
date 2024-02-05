@@ -1,7 +1,4 @@
 export {
    assert,
-} from 'https://deno.land/std@0.214.0/assert/assert.ts'
-
-export {
    assertEquals,
-} from 'https://deno.land/std@0.214.0/assert/assert_equals.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-deps/main/deps.ts'
