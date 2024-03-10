@@ -4,20 +4,24 @@ Webserver helper functions in Deno.
 
 ## Structure
 
-Code is organized into small parts in subfolders.
+Code is organized into small parts in subfolders. You can either reference these functions, constants or types directly or import them all using **mod.ts** file
 
 - **crypto**: Helper functions for crypto/password related tasks
 - **cryptoFunctions.ts**
-    - **arrayBufferToHexString**: Converts given ArrayBuffer to a HEX string.
-    - **async createPasswordHash**: Creates a SHA-256 hash for given password/string.
-    - **generateAccessTokenHash**: Creates an access token hash (hex string) from a Random 24 elements UInt8 Array.
-    - **async verifyPassword**: Verifies that a given cleartext password and a hashed password match. 
+  - **arrayBufferToHexString**: Converts given ArrayBuffer to a HEX string.
+  - **async createPasswordHash**: Creates a SHA-256 hash for given
+    password/string.
+  - **generateAccessTokenHash**: Creates an access token hash (hex string) from
+    a Random 24 elements UInt8 Array.
+  - **async verifyPassword**: Verifies that a given cleartext password and a
+    hashed password match.
 - **request/extractAccessTokenFromAuthHeader.ts**: Tries to extract a JWT access
   token from the Authorization header.
 - **response**: Helper functions for creating responses.
   - **responseFunctions.ts**
     - **returnDataResponse**: Creates a data response and returns it.
-    - **returnDefaultFavicon**: Creates a response containing a default favicon and returns it.
+    - **returnDefaultFavicon**: Creates a response containing a default favicon
+      and returns it.
     - **logAndReturnErrorResponse**: Creates an error response, logs and and
       returns it.
   - **ResponseHeaders.ts**: Contains **JSON_CONTENT_TYPE_HEADER** as constant
@@ -36,6 +40,12 @@ Example:
 import {
    returnDataResponse,
 } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.2.0/server/responseFunctions.ts'
+```
+
+Example using JSR:
+
+```typescript
+import { returnDataResponse } from "jsr:@sgohlke/deno-web";
 ```
 
 ## Code example
