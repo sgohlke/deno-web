@@ -11,6 +11,7 @@
    "publish": {
       "include": [
         "README.md",
+        "deno.json",
         "crypto/*.ts",
         "request/*.ts",
         "response/*.ts"
