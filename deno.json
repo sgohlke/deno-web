@@ -1,7 +1,7 @@
 {
    "name": "@sgohlke/deno-web",
-   "version": "8.2.3",
-   "exports": "./mod.ts",
+   "version": "8.2.4",
+   "exports": "./index.ts",
    "tasks": {
       "coverage": "deno test --allow-net --coverage=covresults && deno coverage covresults",
       "format": "deno fmt --options-indent-width=3 --options-single-quote --options-no-semicolons=true",
@@ -12,7 +12,7 @@
       "include": [
         "README.md",
         "deno.json",
-        "mod.ts",
+        "index.ts",
         "crypto/*.ts",
         "request/*.ts",
         "response/*.ts"
