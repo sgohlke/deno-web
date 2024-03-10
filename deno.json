@@ -12,6 +12,7 @@
       "include": [
         "README.md",
         "deno.json",
+        "mod.ts",
         "crypto/*.ts",
         "request/*.ts",
         "response/*.ts"
