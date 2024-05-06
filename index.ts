@@ -1,9 +1,10 @@
+// We reexport functions from auth-helper for compatibility. Will be removed in next major release
 export {
    arrayBufferToHexString,
    createPasswordHash,
    generateAccessTokenHash,
    verifyPassword,
-} from './crypto/cryptoFunctions.ts'
+} from 'jsr:@sgohlke/auth-helper'
 
 export type {
    AccessTokenOrError,

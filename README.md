@@ -5,7 +5,12 @@ Webserver helper functions in Deno.
 ## Structure
 
 Code is organized into small parts in subfolders. You can either reference these
-functions, constants or types directly or import them all using **mod.ts** file
+functions, constants or types directly or import them all using **mod.ts** file.
+
+Deprecation notice:
+
+**crypto** functions have been moved to **@sgohlke/auth-helper** library. They
+are reexported in **deno-web** version 8 but will be removed in version 9.
 
 - **crypto**: Helper functions for crypto/password related tasks
 - **cryptoFunctions.ts**
