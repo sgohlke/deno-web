@@ -1,4 +1,4 @@
-import { assertEquals } from '../deps.ts'
+import { assertEquals } from '../dev_deps.ts'
 import { extractAccessTokenFromAuthHeader } from './extractAccessTokenFromAuthHeader.ts'
 
 Deno.test('Calling extractAccessTokenFromAuthHeader should return expected result', () => {

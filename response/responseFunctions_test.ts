@@ -1,4 +1,4 @@
-import { assertEquals } from '../deps.ts'
+import { assertEquals } from '../dev_deps.ts'
 import { JSON_CONTENT_TYPE_HEADER } from './ResponseHeaders.ts'
 import {
    FAVICON_SVG_STRING,

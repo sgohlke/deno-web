@@ -4,7 +4,8 @@ Webserver helper functions in Deno.
 
 ## Structure
 
-Code is organized into small parts in subfolders. You can either reference these functions, constants or types directly or import them all using **mod.ts** file
+Code is organized into small parts in subfolders. You can either reference these
+functions, constants or types directly or import them all using **mod.ts** file
 
 - **crypto**: Helper functions for crypto/password related tasks
 - **cryptoFunctions.ts**
@@ -45,7 +46,7 @@ import {
 Example using JSR:
 
 ```typescript
-import { returnDataResponse } from "jsr:@sgohlke/deno-web";
+import { returnDataResponse } from 'jsr:@sgohlke/deno-web'
 ```
 
 ## Code example
