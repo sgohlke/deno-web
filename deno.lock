@@ -25,7 +25,6 @@
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@sgohlke/auth-helper@1.0.0",
       "jsr:@std/assert@0.224.0"
     ]
   }
