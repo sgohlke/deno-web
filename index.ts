@@ -4,7 +4,7 @@ export {
    createPasswordHash,
    generateAccessTokenHash,
    verifyPassword,
-} from 'jsr:@sgohlke/auth-helper@1.0.0'
+} from 'jsr:@sgohlke/auth-helper@1.0.1'
 
 export type {
    AccessTokenOrError,
