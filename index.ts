@@ -1,11 +1,3 @@
-// We reexport functions from auth-helper for compatibility. Will be removed in next major release
-export {
-   arrayBufferToHexString,
-   createPasswordHash,
-   generateAccessTokenHash,
-   verifyPassword,
-} from 'jsr:@sgohlke/auth-helper@1.0.1'
-
 export type {
    AccessTokenOrError,
 } from './request/extractAccessTokenFromAuthHeader.ts'

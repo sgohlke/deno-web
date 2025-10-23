@@ -1,6 +1,6 @@
 {
    "name": "@sgohlke/deno-web",
-   "version": "8.2.7",
+   "version": "9.0.0",
    "exports": "./index.ts",
    "tasks": {
       "coverage": "deno test --allow-net --coverage=covresults && deno coverage covresults",
@@ -22,6 +22,6 @@
       ]
    },
    "imports": {
-      "@std/assert": "jsr:@std/assert@1.0.0"
+      "@std/assert": "jsr:@std/assert@1.0.15"
    }
 }

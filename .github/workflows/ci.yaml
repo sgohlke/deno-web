@@ -1,7 +1,7 @@
 name: DenoWeb
 on:
-  push:
+   push:
 
 jobs:
-  denoweb:
-    uses: sgohlke/workflows/.github/workflows/deno.yml@main
+   denoweb:
+      uses: sgohlke/workflows/.github/workflows/deno.yml@main
