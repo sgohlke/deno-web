@@ -1,3 +1,4 @@
+/** The svg code for a slime image. It is returned as default favicon by {@link returnDefaultFavicon} */
 export const FAVICON_SVG_STRING: string =
    `<svg xmlns="http://www.w3.org/2000/svg" height="300" width="400">
       <!-- Slime body -->

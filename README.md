@@ -31,7 +31,7 @@ Example:
 ```typescript
 import {
    returnDataResponse,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.0/server/responseFunctions.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.1/server/responseFunctions.ts'
 ```
 
 Example using JSR:
@@ -45,13 +45,13 @@ import { returnDataResponse } from 'jsr:@sgohlke/deno-web'
 The following code example shows how this module can be used.
 
 ```typescript
-import { extractAccessTokenFromAuthHeader } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.0/request/extractAccessTokenFromAuthHeader.ts'
+import { extractAccessTokenFromAuthHeader } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.1/request/extractAccessTokenFromAuthHeader.ts'
 import {
    logAndReturnErrorResponse,
    returnDataResponse,
-} from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.0/response/responseFunctions.ts'
-import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.0/response/ResponseHeaders.ts'
-import { startServer } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.0/server/serverFunctions.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.1/response/responseFunctions.ts'
+import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.1/response/ResponseHeaders.ts'
+import { startServer } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.1/server/serverFunctions.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
@@ -97,13 +97,12 @@ your app elsewhere or for tests to shut down properly) you can provide an
 following example.
 
 ```typescript
-import { assertEquals } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/deps.ts'
-import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/response/ResponseHeaders.ts'
-import { startServer } from 'https://raw.githubusercontent.com/sgohlke/deno-web/8.0.0/server/serverFunctions.ts'
+import { assertEquals } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.1/dev_deps.ts'
+import { JSON_CONTENT_TYPE_HEADER } from 'https://raw.githubusercontent.com/sgohlke/deno-web/9.0.1/response/ResponseHeaders.ts'
 
 const defaultResponseHeaders = new Headers(JSON_CONTENT_TYPE_HEADER)
 
-Deno.test('Calling startServer should return expected result', async () => {
+Deno.test('Starting the server should return expected result', async () => {
    const abortController = new AbortController()
    Deno.serve(
       { port: 7035, signal: abortController.signal },

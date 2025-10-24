@@ -1,5 +1,8 @@
+/** The result returned by the {@link extractAccessTokenFromAuthHeader} method. */
 export interface AccessTokenOrError {
+   /** The access token as string if it could be successfully extracted. */
    accessToken?: string
+   /** An error message if the extraction failed. */
    error?: string
 }
 
